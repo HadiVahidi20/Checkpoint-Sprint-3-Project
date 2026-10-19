@@ -37,7 +37,7 @@ body {
             #327fce 100%);
 }
 
-/* Hide old site header */
+/* Hide the old site header */
 
 .site-header {
     display: none;
@@ -56,14 +56,33 @@ main {
     width: 100%;
 }
 
+/* Unified calendar card */
+
+.calendar-card {
+    width: 100%;
+    padding: 28px;
+
+    background: var(--white);
+    border-radius: 20px;
+
+    box-shadow: 0 8px 30px rgba(5, 31, 76, 0.18);
+}
+
+.calendar-table-wrapper {
+    width: 100%;
+}
+
 /* Month heading */
 
 .month-header {
     width: 100%;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
+    padding: 8px 0 24px;
 
-    color: white;
+    color: var(--text);
     text-align: center;
+
+    border-bottom: 1px solid var(--border);
 }
 
 .month-title {
@@ -79,7 +98,9 @@ main {
     justify-content: center;
     gap: 12px;
 
-    color: #d3e6ff;
+    margin: 0;
+
+    color: var(--muted);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -89,9 +110,11 @@ main {
 .month-eyebrow::before,
 .month-eyebrow::after {
     content: "";
+
     width: 45px;
     height: 1px;
-    background: #b7d8ff;
+
+    background: #b7cce6;
 }
 
 /* Month and year */
@@ -106,17 +129,18 @@ main {
     font-weight: 400;
     line-height: 1.1;
 
-    color: white;
+    color: var(--navy);
 }
 
 .month-subtitle {
     margin: 0;
-    color: #d3e6ff;
+
+    color: var(--muted);
     font-size: 13px;
     letter-spacing: 0.5px;
 }
 
-/* Navigation */
+/* Month navigation */
 
 .month-navigation {
     display: flex;
@@ -124,7 +148,7 @@ main {
     align-items: center;
 
     gap: 12px;
-    margin-top: 14px;
+    margin-top: 20px;
 }
 
 .month-navigation button {
@@ -137,11 +161,11 @@ main {
     justify-content: center;
     gap: 10px;
 
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    border-radius: 11px;
+    background: var(--navy);
+    border: 1px solid var(--navy);
+    border-radius: 10px;
 
-    color: white;
+    color: var(--white);
     font-family: inherit;
     font-size: 13px;
     font-weight: 700;
@@ -173,27 +197,13 @@ main {
 }
 
 .month-navigation button:hover {
-    background: rgba(255, 255, 255, 0.22);
+    background: var(--blue);
+    border-color: var(--blue);
 }
 
 .month-navigation button:focus-visible {
-    outline: 3px solid white;
+    outline: 3px solid var(--blue);
     outline-offset: 3px;
-}
-
-/* Calendar card */
-
-.calendar-card {
-    padding: 28px;
-
-    background: white;
-    border-radius: 20px;
-
-    box-shadow: 0 8px 20px rgba(5, 31, 76, 0.12);
-}
-
-.calendar-table-wrapper {
-    width: 100%;
 }
 
 /* Calendar table */
@@ -207,9 +217,11 @@ table {
 
 caption {
     position: absolute;
+
     width: 1px;
     height: 1px;
     padding: 0;
+
     overflow: hidden;
     clip-path: inset(50%);
     white-space: nowrap;
@@ -266,12 +278,12 @@ tbody td:not(:empty):hover {
     border-color: #9ac5f5;
 }
 
-/* Today */
+/* Today's date */
 
 tbody td.today {
     background: #245a9e;
     border-color: #245a9e;
-    color: white;
+    color: var(--white);
 }
 
 tbody td.today:hover {
@@ -302,6 +314,7 @@ tbody td.commemorative-day::after {
 
 .commemorative-day .date-number {
     display: block;
+
     font-size: 22px;
     font-weight: 700;
 }
@@ -319,10 +332,12 @@ tbody td.commemorative-day:hover {
     background: #ffe9c2;
 }
 
+/* A date can be both today and a commemorative day */
+
 tbody td.today.commemorative-day {
     background: #245a9e;
     border-color: #e9b35b;
-    color: white;
+    color: var(--white);
 }
 
 tbody td.today.commemorative-day:hover {
@@ -356,8 +371,10 @@ tbody td.today.commemorative-day::after {
 
 .legend-dot {
     display: inline-block;
+
     width: 12px;
     height: 12px;
+
     border-radius: 4px;
 }
 
@@ -382,6 +399,7 @@ tbody td.today.commemorative-day::after {
 
 .site-footer p {
     margin: 0;
+
     color: #d3e6ff;
     font-size: 12px;
 }
@@ -422,8 +440,14 @@ tbody td.today.commemorative-day::after {
         padding: 16px 0 12px;
     }
 
+    .calendar-card {
+        padding: 16px 8px;
+        border-radius: 14px;
+    }
+
     .month-header {
-        margin-bottom: 12px;
+        margin-bottom: 16px;
+        padding: 4px 0 18px;
     }
 
     .month-title {
@@ -450,7 +474,7 @@ tbody td.today.commemorative-day::after {
     }
 
     .month-navigation {
-        margin-top: 12px;
+        margin-top: 16px;
         gap: 8px;
     }
 
@@ -459,11 +483,6 @@ tbody td.today.commemorative-day::after {
         height: 36px;
         padding: 0 10px;
         font-size: 12px;
-    }
-
-    .calendar-card {
-        padding: 12px 5px;
-        border-radius: 14px;
     }
 
     table {
@@ -527,7 +546,7 @@ tbody td.today.commemorative-day::after {
     }
 }
 
-/* Small phones */
+/* Hover effects on devices that support hover */
 
 @media (hover: hover) {
     tbody td:not(:empty):hover {
@@ -545,7 +564,8 @@ tbody td.today.commemorative-day::after {
     }
 
     .month-navigation button:hover {
-        background: rgba(255, 255, 255, 0.22);
+        background: var(--blue);
+        border-color: var(--blue);
     }
 }
 
