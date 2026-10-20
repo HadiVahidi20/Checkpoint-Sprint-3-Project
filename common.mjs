@@ -1,9 +1,9 @@
 export function getDaysInMonth(year, month) {
-  return new Date(year, month + 1, 0).getDate();
+  return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
 }
 
 export function getFirstDayOfMonth(year, month) {
-  return new Date(year, month, 1).getDay();
+  return new Date(Date.UTC(year, month, 1)).getUTCDay();
 }
 
 const MONTH_NAMES = [
@@ -48,7 +48,7 @@ export function getCommemorativeDate(day, year) {
 
   if (day.occurrence === "last") {
     const lastDate = getDaysInMonth(year, month);
-    const lastWeekday = new Date(year, month, lastDate).getDay();
+    const lastWeekday = new Date(Date.UTC(year, month, lastDate)).getUTCDay();
 
     return lastDate - ((lastWeekday - weekday + 7) % 7);
   }
@@ -61,11 +61,6 @@ export function getCommemorativeDate(day, year) {
 
   const firstWeekday = getFirstDayOfMonth(year, month);
   const firstMatch = 1 + ((weekday - firstWeekday + 7) % 7);
-  const date = firstMatch + (occurrence - 1) * 7;
 
-  if (date > getDaysInMonth(year, month)) {
-    throw new Error("That occurrence does not exist in this month");
-  }
-
-  return date;
+  return firstMatch + (occurrence - 1) * 7;
 }
