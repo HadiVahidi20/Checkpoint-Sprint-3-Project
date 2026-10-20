@@ -6,6 +6,10 @@ import {
 import assert from "node:assert";
 import test from "node:test";
 
+// Kiritimati skipped the whole of 31 December 1994. Running the tests in this
+// time zone shows that our dates do not depend on the local time zone.
+process.env.TZ = "Pacific/Kiritimati";
+
 const adaLovelaceDay = {
   name: "Ada Lovelace Day",
   monthName: "October",
@@ -88,4 +92,8 @@ test("Months have the right number of days", () => {
   // 2024 is a leap year, but 1900 is not.
   assert.equal(getDaysInMonth(2024, 1), 29);
   assert.equal(getDaysInMonth(1900, 1), 28);
+});
+
+test("December 1994 has 31 days, even in Kiritimati", () => {
+  assert.equal(getDaysInMonth(1994, 11), 31);
 });
