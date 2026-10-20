@@ -61,11 +61,6 @@ export function getCommemorativeDate(day, year) {
 
   const firstWeekday = getFirstDayOfMonth(year, month);
   const firstMatch = 1 + ((weekday - firstWeekday + 7) % 7);
-  const date = firstMatch + (occurrence - 1) * 7;
 
-  if (date > getDaysInMonth(year, month)) {
-    throw new Error("That occurrence does not exist in this month");
-  }
-
-  return date;
+  return firstMatch + (occurrence - 1) * 7;
 }
