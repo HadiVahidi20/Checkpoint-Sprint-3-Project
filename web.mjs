@@ -2,26 +2,12 @@ import {
   getFirstDayOfMonth,
   getDaysInMonth,
   getCommemorativeDate,
+  MONTH_NAMES,
 } from "./common.mjs";
 
 import daysData from "./days.json" with { type: "json" };
 
 const today = new Date();
-
-const MONTH_NAMES = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
 
 const state = {
   currentMonth: today.getMonth(),
@@ -38,13 +24,16 @@ function setup() {
   elements.calendarBody = document.getElementById("calendar-body");
   elements.nextMonthButton = document.getElementById("next-month");
   elements.previousMonthButton = document.getElementById("previous-month");
+  elements.monthSelect = document.getElementById("month-select");
+  elements.yearInput = document.getElementById("year-input");
+  elements.jumpToDateButton = document.getElementById("jump-to-date");
 
   elements.previousMonthButton.addEventListener(
     "click",
     handlePreviousMonthClick,
   );
-
   elements.nextMonthButton.addEventListener("click", handleNextMonthClick);
+  elements.jumpToDateButton.addEventListener("click", handleJumpToDateClick);
 }
 
 function handleNextMonthClick() {
@@ -69,10 +58,23 @@ function handlePreviousMonthClick() {
   updateCalendar();
 }
 
+function handleJumpToDateClick() {
+  if (!elements.yearInput.checkValidity()) {
+    elements.yearInput.reportValidity();
+    return;
+  }
+  state.currentMonth = Number(elements.monthSelect.value);
+  state.currentYear = Number(elements.yearInput.value);
+
+  updateCalendar();
+}
+
 function updateCalendar() {
   getCalendarData();
   getCommemorativeDays();
   renderCalendar();
+  elements.monthSelect.value = state.currentMonth;
+  elements.yearInput.value = state.currentYear;
 }
 
 function getCalendarData() {

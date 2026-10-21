@@ -43,6 +43,36 @@
 
               <button id="next-month" type="button">Next</button>
             </nav>
+
+            <div class="calendar-jump">
+              <label for="month-select">Jump to month</label>
+              <select id="month-select">
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">October</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
+              </select>
+
+              <label for="year-input">Year</label>
+              <input
+                id="year-input"
+                type="number"
+                min="1900"
+                max="2050"
+                step="1"
+                required
+              />
+
+              <button id="jump-to-date" type="button">Go</button>
+            </div>
           </header>
 
           <div class="calendar-table-wrapper">
