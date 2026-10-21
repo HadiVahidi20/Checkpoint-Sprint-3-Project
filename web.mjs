@@ -2,26 +2,12 @@ import {
   getFirstDayOfMonth,
   getDaysInMonth,
   getCommemorativeDate,
+  MONTH_NAMES,
 } from "./common.mjs";
 
 import daysData from "./days.json" with { type: "json" };
 
 const today = new Date();
-
-const MONTH_NAMES = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
 
 const state = {
   currentMonth: today.getMonth(),

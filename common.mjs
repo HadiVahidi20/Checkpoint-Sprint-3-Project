@@ -6,7 +6,7 @@ export function getFirstDayOfMonth(year, month) {
   return new Date(Date.UTC(year, month, 1)).getUTCDay();
 }
 
-const MONTH_NAMES = [
+export const MONTH_NAMES = [
   "January",
   "February",
   "March",
