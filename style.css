@@ -15,10 +15,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     min-height: 100vh;
     margin: 0;
@@ -35,12 +31,6 @@ body {
             #103c7b 0%,
             #205ba4 55%,
             #327fce 100%);
-}
-
-/* Hide the old site header */
-
-.site-header {
-    display: none;
 }
 
 /* Main layout */
@@ -543,37 +533,6 @@ tbody td.today.commemorative-day::after {
 
     .site-footer p {
         font-size: 11px;
-    }
-}
-
-/* Hover effects on devices that support hover */
-
-@media (hover: hover) {
-    tbody td:not(:empty):hover {
-        background: #e0efff;
-        border-color: #9ac5f5;
-    }
-
-    tbody td.today:hover,
-    tbody td.today.commemorative-day:hover {
-        background: #327bc7;
-    }
-
-    tbody td.commemorative-day:hover {
-        background: #ffe9c2;
-    }
-
-    .month-navigation button:hover {
-        background: var(--blue);
-        border-color: var(--blue);
-    }
-}
-
-/* Reduced motion */
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
     }
 }
 

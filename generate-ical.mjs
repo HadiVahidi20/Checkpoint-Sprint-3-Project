@@ -29,11 +29,6 @@ for (let year = START_YEAR; year <= END_YEAR; year++) {
   for (const day of daysData) {
     const date = getCommemorativeDate(day, year);
     const monthIndex = MONTH_NAMES.indexOf(day.monthName);
-
-    if (monthIndex === -1) {
-      throw new Error(`Unknown month: ${day.monthName}`);
-    }
-
     const formattedDate = `${year}${String(monthIndex + 1).padStart(2, "0")}${String(date).padStart(2, "0")}`;
     const uidName = day.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
@@ -53,6 +48,6 @@ for (let year = START_YEAR; year <= END_YEAR; year++) {
 
 icalContent += "END:VCALENDAR\r\n";
 
-await writeFile("commemorative-days.ics", icalContent, "utf8");
+await writeFile("days.ics", icalContent, "utf8");
 
-console.log("Calendar generated: commemorative-days.ics");
+console.log("Calendar generated: days.ics");
