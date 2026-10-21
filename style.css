@@ -576,3 +576,101 @@ tbody td.today.commemorative-day::after {
         scroll-behavior: auto;
     }
 }
+
+/* Calendar date jump controls */
+
+.calendar-jump {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+
+    margin-top: 28px;
+    padding: 22px 20px;
+
+    background: #f0f5fc;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.calendar-jump label {
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.calendar-jump select,
+.calendar-jump input {
+    min-height: 48px;
+    padding: 0 14px;
+
+    background: var(--white);
+    border: 1px solid #c5d6eb;
+    border-radius: 10px;
+
+    color: var(--text);
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.calendar-jump select {
+    min-width: 155px;
+    cursor: pointer;
+}
+
+.calendar-jump input {
+    width: 115px;
+}
+
+.calendar-jump select:focus-visible,
+.calendar-jump input:focus-visible {
+    outline: 3px solid #9ac5f5;
+    outline-offset: 2px;
+    border-color: var(--blue);
+}
+
+#jump-to-date {
+    min-height: 48px;
+    padding: 0 30px;
+
+    background: var(--navy);
+    border: 1px solid var(--navy);
+    border-radius: 10px;
+
+    color: var(--white);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: background 0.2s ease,
+        transform 0.2s ease;
+}
+
+#jump-to-date:hover {
+    background: var(--blue);
+    transform: translateY(-1px);
+}
+
+#jump-to-date:focus-visible {
+    outline: 3px solid #9ac5f5;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .calendar-jump select,
+    .calendar-jump input,
+    #jump-to-date {
+        transition: none;
+    }
+
+    #jump-to-date:hover {
+        transform: none;
+    }
+}
