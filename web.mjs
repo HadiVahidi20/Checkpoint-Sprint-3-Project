@@ -123,23 +123,25 @@ function renderCalendar() {
           cell.classList.add("today");
         }
 
-        const commemorativeDay = state.commemorativeDatesArray.find(
+        const commemorativeDays = state.commemorativeDatesArray.filter(
           (day) =>
             day.monthName === MONTH_NAMES[state.currentMonth] &&
             day.date === dayOfMonth,
         );
 
-        if (commemorativeDay) {
+        if (commemorativeDays.length > 0) {
           cell.classList.add("commemorative-day");
           const dateNumber = document.createElement("span");
           dateNumber.className = "date-number";
           dateNumber.textContent = dayOfMonth;
+          cell.replaceChildren(dateNumber);
 
-          const eventName = document.createElement("span");
-          eventName.className = "event-name";
-          eventName.textContent = commemorativeDay.name;
-
-          cell.replaceChildren(dateNumber, eventName);
+          for (const commemorativeDay of commemorativeDays) {
+            const eventName = document.createElement("span");
+            eventName.className = "event-name";
+            eventName.textContent = commemorativeDay.name;
+            cell.appendChild(eventName);
+          }
         }
 
         dayOfMonth++;

@@ -22,7 +22,7 @@ This file explains how we tested each point of the rubric. We did the browser ch
   - Jumped to January 1900 (the first year) and clicked Previous: December 1899 was shown correctly.
   - The heading, the month list and the year box never showed an empty value, "undefined", "null" or "NaN".
 - **There is a usable way to jump to a month and year.** Checked in Chrome: we used the month list, the year box and the Go button to open every month above. An empty year, a year with a decimal point, or a year outside 1900 to 2050 shows the browser's error message and does not change the calendar.
-- **The UI is made with DOM manipulation, and the days are not hard-coded.** `web.mjs` makes every row and box with `document.createElement`. We added International Dawn Chorus Day (the first Sunday of May) to a copy of `days.json`. Without any change to the code, it appeared on 4 May 2025 on the web page and in `days.ics`.
+- **The UI is made with DOM manipulation, and the days are not hard-coded.** `web.mjs` makes every row and box with `document.createElement`. We added International Dawn Chorus Day (the first Sunday of May) to a copy of `days.json`. Without any change to the code, it appeared on 4 May 2025 on the web page and in `days.ics`. We also added a test day on the second Saturday of May, which is the same date as International Binturong Day. On 10 May 2025 the box showed both names.
 - **Lighthouse accessibility is 100% in Desktop mode for all views.** Lighthouse in Chrome (Desktop mode, Snapshot mode) gave 100 for:
   - the first view (October 2026)
   - October 2024
